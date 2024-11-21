@@ -2,7 +2,6 @@ library app_resources;
 
 import 'dart:async';
 
-import 'package:app_resources/gen/assets_extension.dart';
 import 'package:app_resources/gen/preload.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,12 +14,12 @@ export './localizations/all.dart';
 class AppResource {
   static Future<void> preCacheImageAssets(BuildContext context) async {
     final svgList = PreLoadImages.svgList.map((asset) {
-      final loader = SvgAssetLoader(asset.path);
+      final loader = SvgAssetLoader(asset.keyName);
       return svg.cache
           .putIfAbsent(loader.cacheKey(null), () => loader.loadBytes(null));
     }).toList();
     final rawList = PreLoadImages.imageList
-        .map((asset) => precacheImage(AssetImage(asset.fullPath), context))
+        .map((asset) => precacheImage(AssetImage(asset.keyName), context))
         .toList();
     await Future.wait([...svgList, ...rawList]);
 

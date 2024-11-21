@@ -55,7 +55,7 @@ class AssetGenImage {
     bool matchTextDirection = false,
     bool gaplessPlayback = false,
     bool isAntiAlias = false,
-    String? package,
+    String? package = 'app_resources',
     FilterQuality filterQuality = FilterQuality.low,
     int? cacheWidth,
     int? cacheHeight,
@@ -90,7 +90,7 @@ class AssetGenImage {
 
   ImageProvider provider({
     AssetBundle? bundle,
-    String? package,
+    String? package = 'app_resources',
   }) {
     return AssetImage(
       _assetName,
@@ -101,7 +101,7 @@ class AssetGenImage {
 
   String get path => _assetName;
 
-  String get keyName => _assetName;
+  String get keyName => 'packages/app_resources/$_assetName';
 }
 
 class SvgGenImage {
@@ -113,7 +113,7 @@ class SvgGenImage {
     Key? key,
     bool matchTextDirection = false,
     AssetBundle? bundle,
-    String? package,
+    String? package = 'app_resources',
     double? width,
     double? height,
     BoxFit fit = BoxFit.contain,
@@ -154,5 +154,5 @@ class SvgGenImage {
 
   String get path => _assetName;
 
-  String get keyName => _assetName;
+  String get keyName => 'packages/app_resources/$_assetName';
 }
