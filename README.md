@@ -9,7 +9,7 @@
 ### In pubspec.yalm
 1) Change sdk and flutter version compatible with your app.
 2) Change version of dependencies if needed.
-3) Finally run "flutter pub get" 
+3) Finally run "flutter pub get"  and "flutter gen-l10n"
 
 
 
